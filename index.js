@@ -9,21 +9,18 @@ const setup = () => {
         else {
             secondCard = $(this).find(".front_face")[0]
             console.log(firstCard, secondCard);
-            if (
-                firstCard.src
-                ==
-                secondCard.src
-            )
+            if (firstCard.src == secondCard.src) {
                 console.log("match")
-            else {
+                $(`#${firstCard.id}`).parent().off("click")
+                $(`#${secondCard.id}`).parent().off("click")
+            } else {
                 console.log("no match")
                 setTimeout(() => {
                     $(`#${firstCard.id}`).parent().toggleClass("flip")
                     $(`#${secondCard.id}`).parent().toggleClass("flip")
-                  }, 1000)
+                }, 1000)
             }
         }
-
     });
 }
 
