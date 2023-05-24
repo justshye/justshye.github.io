@@ -2,13 +2,30 @@ body {
   margin: 0px;
 }
 
-.theme-buttons {
+header {
+  background-color: #f1f1f1;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.theme-button {
-  margin: 5px;
+h1 {
+  margin: 0;
+}
+
+#game-info {
+  margin-top: 10px;
+}
+
+#game-info span {
+  margin-right: 10px;
+}
+
+#game-buttons {
+  margin-top: 20px;
+}
+
+#game-buttons button {
+  margin-right: 10px;
 }
 
 #game_grid {
@@ -20,7 +37,6 @@ body {
   flex-wrap: wrap;
 }
 
-
 .card {
   width: 33.3%;
   position: relative;
@@ -28,7 +44,6 @@ body {
   perspective: 1000px;
   transform-style: preserve-3d;
 }
-
 
 img {
   width: 100%
@@ -40,44 +55,17 @@ img {
   backface-visibility: hidden;
 }
 
-
 .flip {
   transform: rotateY(180deg);
 }
-
 
 .front_face {
   transform: rotateY(180deg);
 }
 
-/* Light Theme */
-body.light-theme {
-  background-color: white;
-  color: black;
-}
-
-.card.light-theme {
-  border-color: gray;
-  background-color: white;
-}
-
-.theme-button.light-theme {
-  background-color: white;
-  color: black;
-}
-
-/* Dark Theme */
-body.dark-theme {
-  background-color: black;
-  color: white;
-}
-
-.card.dark-theme {
-  border-color: white;
-  background-color: black;
-}
-
-.theme-button.dark-theme {
-  background-color: black;
-  color: white;
+.victory-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
 }
