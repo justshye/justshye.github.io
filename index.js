@@ -12,7 +12,7 @@ const setup = () => {
     $("#reset-button").on("click", resetGame);
 
     $(".card").on(("click"), function () {
-        if (!canFlip) return;
+        if (!canFlip || $(this).hasClass("flip")) return; // Prevent clicking the same card twice
 
         $(this).toggleClass("flip");
         clickCount++;
@@ -42,6 +42,7 @@ const setup = () => {
             }
         }
 
+
         updateGameInfo();
     });
 
@@ -61,7 +62,7 @@ const setup = () => {
         pairsLeft = 0;
         canFlip = false;
         updateGameInfo();
-        $(".card").removeClass("flip").on("click");
+        $(".card").removeClass("flip").on("click", cardClickHandler);
 
         // Remove the victory message if it exists
         $(".victory-message").remove();
@@ -131,6 +132,43 @@ const setup = () => {
         $("body").addClass("dark-theme");
     });
 
+    function cardClickHandler() {
+        if (!canFlip || $(this).hasClass("flip")) return; // Prevent clicking the same card twice
+      
+        $(this).toggleClass("flip");
+        clickCount++;
+      
+        if (!firstCard)
+          firstCard = $(this).find(".front_face")[0];
+        else {
+          secondCard = $(this).find(".front_face")[0];
+          console.log(firstCard, secondCard);
+          if (firstCard.src == secondCard.src) {
+            console.log("match");
+            $(`#${firstCard.id}`).parent().off("click");
+            $(`#${secondCard.id}`).parent().off("click");
+            resetCards();
+            pairsMatched++;
+            pairsLeft--;
+            updateGameInfo();
+            checkVictory();
+          } else {
+            console.log("no match");
+            canFlip = false;
+            setTimeout(() => {
+              $(`#${firstCard.id}`).parent().toggleClass("flip");
+              $(`#${secondCard.id}`).parent().toggleClass("flip");
+              resetCards();
+            }, 1000);
+          }
+        }
+      
+        updateGameInfo();
+      }
+      
+
 };
+
+
 
 $(document).ready(setup);
