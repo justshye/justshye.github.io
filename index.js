@@ -123,19 +123,13 @@ const setup = () => {
         clearInterval(timerInterval);
     }
 
-// Light Theme button click event
-$("#light-theme").on("click", function () {
-    $("body").removeClass("dark-theme").addClass("light-theme");
-    $(".card").removeClass("dark-theme").addClass("light-theme");
-    $(".theme-button").removeClass("dark-theme").addClass("light-theme");
-  });
-  
-  // Dark Theme button click event
-  $("#dark-theme").on("click", function () {
-    $("body").removeClass("light-theme").addClass("dark-theme");
-    $(".card").removeClass("light-theme").addClass("dark-theme");
-    $(".theme-button").removeClass("light-theme").addClass("dark-theme");
-  });
+    $("#light-theme-button").on("click", function () {
+        $("body").removeClass("dark-theme");
+      });
+    
+      $("#dark-theme-button").on("click", function () {
+        $("body").addClass("dark-theme");
+      });
   
 };
 

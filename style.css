@@ -69,3 +69,7 @@ img {
   margin-top: 20px;
   text-align: center;
 }
+
+body.dark-theme {
+  background-color: #333;
+}
