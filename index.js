@@ -62,11 +62,11 @@ const setup = () => {
         canFlip = false;
         updateGameInfo();
         $(".card").removeClass("flip").on("click");
-      
+
         // Remove the victory message if it exists
         $(".victory-message").remove();
-      }
-      
+    }
+
 
     function resetCards() {
         firstCard = undefined;
@@ -125,12 +125,12 @@ const setup = () => {
 
     $("#light-theme-button").on("click", function () {
         $("body").removeClass("dark-theme");
-      });
-    
-      $("#dark-theme-button").on("click", function () {
+    });
+
+    $("#dark-theme-button").on("click", function () {
         $("body").addClass("dark-theme");
-      });
-  
+    });
+
 };
 
 $(document).ready(setup);
